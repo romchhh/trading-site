@@ -15,6 +15,7 @@ interface NavigationProps {
 export const Navigation: React.FC<NavigationProps> = ({ t, language, onLanguageChange, onRegisterClick }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
+  const [mobileLanguageMenuOpen, setMobileLanguageMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -127,18 +128,78 @@ export const Navigation: React.FC<NavigationProps> = ({ t, language, onLanguageC
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden p-3 rounded-xl hover:bg-blue-950/30 transition-all duration-300 relative z-50 overflow-visible" 
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <div className="w-7 h-5 flex flex-col justify-between items-start relative">
-              <span className={`block h-1 bg-white rounded-full transition-all duration-300 ${mobileMenuOpen ? 'w-full rotate-45 translate-y-2.5' : 'w-full'}`}></span>
-              <span className={`block h-1 w-full bg-white rounded-full transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`}></span>
-              <span className={`block h-1 bg-white rounded-full transition-all duration-300 ${mobileMenuOpen ? 'w-full -rotate-45 -translate-y-2.5' : 'w-4/5'}`}></span>
+          {/* Mobile Language Switcher and Menu Button */}
+          <div className="md:hidden flex items-center space-x-3">
+            {/* Language Selector - Mobile */}
+            <div className="relative">
+              <button 
+                onClick={() => setMobileLanguageMenuOpen(!mobileLanguageMenuOpen)}
+                className="flex items-center space-x-2 text-base font-bold hover:text-blue-400 transition-all duration-300 hover:scale-105 px-4 py-3 rounded-xl hover:bg-blue-950/30"
+              >
+                <Globe className="w-6 h-6" />
+                <span className="text-base">{language.toUpperCase()}</span>
+              </button>
+              {mobileLanguageMenuOpen && (
+                <div className="absolute top-full right-0 mt-2 bg-slate-800/95 backdrop-blur-xl rounded-2xl shadow-2xl py-2 min-w-[120px] border border-blue-900/30 animate-fadeIn z-[101] max-h-[400px] overflow-y-auto">
+                  <button 
+                    onClick={() => { onLanguageChange('ua'); setMobileLanguageMenuOpen(false); }} 
+                    className="block w-full px-6 py-3 text-base font-medium hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
+                  >
+                    UA
+                  </button>
+                  <button 
+                    onClick={() => { onLanguageChange('en'); setMobileLanguageMenuOpen(false); }} 
+                    className="block w-full px-6 py-3 text-base font-medium hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
+                  >
+                    EN
+                  </button>
+                  <button 
+                    onClick={() => { onLanguageChange('ru'); setMobileLanguageMenuOpen(false); }} 
+                    className="block w-full px-6 py-3 text-base font-medium hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
+                  >
+                    RU
+                  </button>
+                  <button 
+                    onClick={() => { onLanguageChange('sk'); setMobileLanguageMenuOpen(false); }} 
+                    className="block w-full px-6 py-3 text-base font-medium hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
+                  >
+                    SK
+                  </button>
+                  <button 
+                    onClick={() => { onLanguageChange('pl'); setMobileLanguageMenuOpen(false); }} 
+                    className="block w-full px-6 py-3 text-base font-medium hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
+                  >
+                    PL
+                  </button>
+                  <button 
+                    onClick={() => { onLanguageChange('hi'); setMobileLanguageMenuOpen(false); }} 
+                    className="block w-full px-6 py-3 text-base font-medium hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
+                  >
+                    HI
+                  </button>
+                  <button 
+                    onClick={() => { onLanguageChange('tr'); setMobileLanguageMenuOpen(false); }} 
+                    className="block w-full px-6 py-3 text-base font-medium hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
+                  >
+                    TR
+                  </button>
+                </div>
+              )}
             </div>
-          </button>
+            
+            {/* Mobile Menu Button */}
+            <button 
+              className="p-3 rounded-xl hover:bg-blue-950/30 transition-all duration-300 relative z-50 overflow-visible" 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              <div className="w-7 h-5 flex flex-col justify-between items-start relative">
+                <span className={`block h-1 bg-white rounded-full transition-all duration-300 ${mobileMenuOpen ? 'w-full rotate-45 translate-y-2.5' : 'w-full'}`}></span>
+                <span className={`block h-1 w-full bg-white rounded-full transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`}></span>
+                <span className={`block h-1 bg-white rounded-full transition-all duration-300 ${mobileMenuOpen ? 'w-full -rotate-45 -translate-y-2.5' : 'w-4/5'}`}></span>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -168,65 +229,7 @@ export const Navigation: React.FC<NavigationProps> = ({ t, language, onLanguageC
               {t.nav.instructions}
             </a>
             
-            <div className="pt-6 mt-auto border-t border-blue-900/30 space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-lg font-bold text-slate-400">Мова</span>
-                <div className="relative">
-                  <button 
-                    onClick={() => setLanguageMenuOpen(!languageMenuOpen)}
-                    className="flex items-center space-x-2 text-lg font-bold text-white hover:text-blue-400 transition-colors px-4 py-2 rounded-xl hover:bg-blue-950/30"
-                  >
-                    <Globe className="w-5 h-5" />
-                    <span>{language.toUpperCase()}</span>
-                  </button>
-                  {languageMenuOpen && (
-                    <div className="absolute top-full right-0 mt-2 bg-slate-800/95 backdrop-blur-xl rounded-2xl shadow-2xl py-2 min-w-[120px] border border-blue-900/30 animate-fadeIn z-[101] max-h-[400px] overflow-y-auto">
-                      <button 
-                        onClick={() => { onLanguageChange('ua'); setLanguageMenuOpen(false); }} 
-                        className="block w-full px-6 py-3 text-base font-bold hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
-                      >
-                        UA
-                      </button>
-                      <button 
-                        onClick={() => { onLanguageChange('en'); setLanguageMenuOpen(false); }} 
-                        className="block w-full px-6 py-3 text-base font-bold hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
-                      >
-                        EN
-                      </button>
-                      <button 
-                        onClick={() => { onLanguageChange('ru'); setLanguageMenuOpen(false); }} 
-                        className="block w-full px-6 py-3 text-base font-bold hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
-                      >
-                        RU
-                      </button>
-                      <button 
-                        onClick={() => { onLanguageChange('sk'); setLanguageMenuOpen(false); }} 
-                        className="block w-full px-6 py-3 text-base font-bold hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
-                      >
-                        SK
-                      </button>
-                      <button 
-                        onClick={() => { onLanguageChange('pl'); setLanguageMenuOpen(false); }} 
-                        className="block w-full px-6 py-3 text-base font-bold hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
-                      >
-                        PL
-                      </button>
-                      <button 
-                        onClick={() => { onLanguageChange('hi'); setLanguageMenuOpen(false); }} 
-                        className="block w-full px-6 py-3 text-base font-bold hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
-                      >
-                        HI
-                      </button>
-                      <button 
-                        onClick={() => { onLanguageChange('tr'); setLanguageMenuOpen(false); }} 
-                        className="block w-full px-6 py-3 text-base font-bold hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
-                      >
-                        TR
-                      </button>
-                    </div>
-                  )}
-                </div>
-              </div>
+            <div className="pt-6 mt-auto border-t border-blue-900/30">
               <button 
                 onClick={() => {
                   setMobileMenuOpen(false);

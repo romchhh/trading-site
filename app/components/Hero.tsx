@@ -82,7 +82,7 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
           {/* Successful Signals Card */}
           <div className="bg-gradient-to-br from-blue-900/30 to-blue-950/30 backdrop-blur-xl border border-blue-700/40 rounded-2xl p-5 shadow-xl hover:shadow-blue-500/20 transition-all duration-500 hover:scale-[1.02] hover:border-blue-600/60 group">
             <div className="flex items-center justify-between mb-2">
-              <div className="text-3xl md:text-4xl font-bold text-white group-hover:text-blue-100 transition-colors">12520</div>
+              <div className="text-3xl md:text-4xl font-bold text-white group-hover:text-blue-100 transition-colors">55547</div>
               <svg className="w-16 h-12 text-green-400" viewBox="0 0 60 40" preserveAspectRatio="none">
                 <defs>
                   <linearGradient id="successGradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -100,7 +100,7 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
           {/* Failed Signals Card */}
           <div className="bg-gradient-to-br from-blue-900/30 to-blue-950/30 backdrop-blur-xl border border-blue-700/40 rounded-2xl p-5 shadow-xl hover:shadow-blue-500/20 transition-all duration-500 hover:scale-[1.02] hover:border-blue-600/60 group">
             <div className="flex items-center justify-between mb-2">
-              <div className="text-3xl md:text-4xl font-bold text-white group-hover:text-blue-100 transition-colors">2355</div>
+              <div className="text-3xl md:text-4xl font-bold text-white group-hover:text-blue-100 transition-colors">8766</div>
               <svg className="w-16 h-12 text-red-400" viewBox="0 0 60 40" preserveAspectRatio="none">
                 <defs>
                   <linearGradient id="failedGradient" x1="0%" y1="0%" x2="0%" y2="100%">
