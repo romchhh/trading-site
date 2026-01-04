@@ -6,9 +6,10 @@ import { ScrollReveal } from './ScrollReveal';
 
 interface HowItWorksSectionProps {
   t: Translations;
+  onRegisterClick?: () => void;
 }
 
-export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ t }) => {
+export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ t, onRegisterClick }) => {
   return (
     <section className="py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/20 to-transparent" />
@@ -17,8 +18,8 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ t }) => {
         <ScrollReveal>
           <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="text-white">Як це </span>
-            <span className="bg-gradient-to-r from-blue-500 to-blue-400 bg-clip-text text-transparent">працює</span>
+            <span className="text-white">{t.howItWorks.titlePart1} </span>
+            <span className="bg-gradient-to-r from-blue-500 to-blue-400 bg-clip-text text-transparent">{t.howItWorks.titlePart2}</span>
           </h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">{t.howItWorks.subtitle}</p>
           </div>
@@ -40,7 +41,10 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ t }) => {
         <ScrollReveal delay={600}>
           <div className="text-center">
           <p className="text-xl md:text-2xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed">{t.howItWorks.cta}</p>
-          <button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 px-10 py-4 rounded-xl text-lg font-semibold text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-blue-500/50 border border-blue-500/30 active:scale-95">
+          <button 
+            onClick={onRegisterClick}
+            className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 px-10 py-4 rounded-xl text-lg font-semibold text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-blue-500/50 border border-blue-500/30 active:scale-95"
+          >
             {t.howItWorks.button}
           </button>
           </div>

@@ -11,12 +11,12 @@ interface PairsSectionProps {
 
 export const PairsSection: React.FC<PairsSectionProps> = ({ t }) => {
   const pairs = [
-    { pair: 'EUR/USD', time: '17:33', duration: '1-5 хвилин', price: '1.04091', color: 'red', trend: 'down' },
-    { pair: 'GBP/JPY', time: '12:16', duration: '2 хвилини', price: '163.509', color: 'green', trend: 'up' },
-    { pair: 'USD/CHF', time: '09:05', duration: '2 хвилини', price: '1.49508', color: 'blue', trend: 'neutral' },
-    { pair: 'AUD/USD', time: '14:22', duration: '1-5 хвилин', price: '0.65234', color: 'green', trend: 'up' },
-    { pair: 'USD/JPY', time: '16:45', duration: '2 хвилини', price: '149.876', color: 'red', trend: 'down' },
-    { pair: 'EUR/GBP', time: '11:30', duration: '1-5 хвилин', price: '0.86542', color: 'blue', trend: 'neutral' },
+    { pair: 'EUR/USD', time: '17:33', duration: t.pairs.durations.minutes1to5, price: '1.04091', color: 'red', trend: 'down' },
+    { pair: 'GBP/JPY', time: '12:16', duration: t.pairs.durations.minutes2, price: '163.509', color: 'green', trend: 'up' },
+    { pair: 'USD/CHF', time: '09:05', duration: t.pairs.durations.minutes2, price: '1.49508', color: 'blue', trend: 'neutral' },
+    { pair: 'AUD/USD', time: '14:22', duration: t.pairs.durations.minutes1to5, price: '0.65234', color: 'green', trend: 'up' },
+    { pair: 'USD/JPY', time: '16:45', duration: t.pairs.durations.minutes2, price: '149.876', color: 'red', trend: 'down' },
+    { pair: 'EUR/GBP', time: '11:30', duration: t.pairs.durations.minutes1to5, price: '0.86542', color: 'blue', trend: 'neutral' },
   ];
 
   return (

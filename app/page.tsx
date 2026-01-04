@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { translations, Language, Translations } from './lib/translations';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
@@ -11,9 +12,25 @@ import { ConfidentSection } from './components/ConfidentSection';
 import { ToolsSection } from './components/ToolsSection';
 import { HowItWorksSection } from './components/HowItWorksSection';
 import { Footer } from './components/Footer';
+import { RegisterModal } from './components/RegisterModal';
 
-export default function AIBoostLanding() {
-  const [language, setLanguage] = useState<Language>('ua');
+function AIBoostLandingContent() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const langParam = searchParams.get('lang') as Language | null;
+  const [language, setLanguage] = useState<Language>(langParam && ['ua', 'en', 'ru', 'sk', 'pl', 'hi', 'tr'].includes(langParam) ? langParam : 'ua');
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+  
+  useEffect(() => {
+    if (langParam && langParam !== language) {
+      setLanguage(langParam);
+    }
+  }, [langParam, language]);
+
+  const handleLanguageChange = (lang: Language) => {
+    setLanguage(lang);
+    router.push(`/?lang=${lang}`);
+  };
   
   const t: Translations = translations[language];
 
@@ -22,16 +39,30 @@ export default function AIBoostLanding() {
       <Navigation 
         t={t} 
         language={language} 
-        onLanguageChange={setLanguage} 
+        onLanguageChange={handleLanguageChange}
+        onRegisterClick={() => setIsRegisterModalOpen(true)}
       />
       <Hero t={t} />
-      <TradingSection t={t} />
+      <TradingSection t={t} onRegisterClick={() => setIsRegisterModalOpen(true)} />
       <PairsSection t={t} />
       <FAQSection t={t} />
       <ConfidentSection t={t} />
       <ToolsSection t={t} />
-      <HowItWorksSection t={t} />
+      <HowItWorksSection t={t} onRegisterClick={() => setIsRegisterModalOpen(true)} />
       <Footer t={t} />
+      <RegisterModal 
+        isOpen={isRegisterModalOpen} 
+        onClose={() => setIsRegisterModalOpen(false)} 
+        t={t} 
+      />
     </div>
+  );
+}
+
+export default function AIBoostLanding() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-950 to-black" />}>
+      <AIBoostLandingContent />
+    </Suspense>
   );
 }

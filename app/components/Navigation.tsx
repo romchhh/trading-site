@@ -9,9 +9,10 @@ interface NavigationProps {
   t: Translations;
   language: Language;
   onLanguageChange: (lang: Language) => void;
+  onRegisterClick?: () => void;
 }
 
-export const Navigation: React.FC<NavigationProps> = ({ t, language, onLanguageChange }) => {
+export const Navigation: React.FC<NavigationProps> = ({ t, language, onLanguageChange, onRegisterClick }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -57,9 +58,9 @@ export const Navigation: React.FC<NavigationProps> = ({ t, language, onLanguageC
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-10">
-            <a href="/" className="text-base font-bold hover:text-blue-400 transition-all duration-300 hover:scale-105">{t.nav.home}</a>
-            <a href="/about" className="text-base font-bold hover:text-blue-400 transition-all duration-300 hover:scale-105">{t.nav.about}</a>
-            <a href="/instructions" className="text-base font-bold hover:text-blue-400 transition-all duration-300 hover:scale-105">{t.nav.instructions}</a>
+            <a href={`/?lang=${language}`} className="text-base font-bold hover:text-blue-400 transition-all duration-300 hover:scale-105">{t.nav.home}</a>
+            <a href={`/about?lang=${language}`} className="text-base font-bold hover:text-blue-400 transition-all duration-300 hover:scale-105">{t.nav.about}</a>
+            <a href={`/instructions?lang=${language}`} className="text-base font-bold hover:text-blue-400 transition-all duration-300 hover:scale-105">{t.nav.instructions}</a>
             
             {/* Language Selector */}
             <div className="relative">
@@ -71,7 +72,7 @@ export const Navigation: React.FC<NavigationProps> = ({ t, language, onLanguageC
                 <span>{language.toUpperCase()}</span>
               </button>
               {languageMenuOpen && (
-                <div className="absolute top-full mt-3 bg-slate-800/95 backdrop-blur-xl rounded-2xl shadow-2xl py-2 min-w-[120px] border border-blue-900/30 animate-fadeIn">
+                <div className="absolute top-full mt-3 bg-slate-800/95 backdrop-blur-xl rounded-2xl shadow-2xl py-2 min-w-[120px] border border-blue-900/30 animate-fadeIn max-h-[400px] overflow-y-auto">
                   <button 
                     onClick={() => { onLanguageChange('ua'); setLanguageMenuOpen(false); }} 
                     className="block w-full px-6 py-3 text-base font-medium hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
@@ -90,11 +91,38 @@ export const Navigation: React.FC<NavigationProps> = ({ t, language, onLanguageC
                   >
                     RU
                   </button>
+                  <button 
+                    onClick={() => { onLanguageChange('sk'); setLanguageMenuOpen(false); }} 
+                    className="block w-full px-6 py-3 text-base font-medium hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
+                  >
+                    SK
+                  </button>
+                  <button 
+                    onClick={() => { onLanguageChange('pl'); setLanguageMenuOpen(false); }} 
+                    className="block w-full px-6 py-3 text-base font-medium hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
+                  >
+                    PL
+                  </button>
+                  <button 
+                    onClick={() => { onLanguageChange('hi'); setLanguageMenuOpen(false); }} 
+                    className="block w-full px-6 py-3 text-base font-medium hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
+                  >
+                    HI
+                  </button>
+                  <button 
+                    onClick={() => { onLanguageChange('tr'); setLanguageMenuOpen(false); }} 
+                    className="block w-full px-6 py-3 text-base font-medium hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
+                  >
+                    TR
+                  </button>
                 </div>
               )}
             </div>
             
-            <button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 px-8 py-3 rounded-xl text-base font-semibold text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-blue-500/50 border border-blue-500/30 active:scale-95">
+            <button 
+              onClick={onRegisterClick}
+              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 px-8 py-3 rounded-xl text-base font-semibold text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-blue-500/50 border border-blue-500/30 active:scale-95"
+            >
               {t.nav.register}
             </button>
           </div>
@@ -119,21 +147,21 @@ export const Navigation: React.FC<NavigationProps> = ({ t, language, onLanguageC
         <div className="md:hidden fixed inset-0 top-20 bg-slate-950/98 backdrop-blur-xl z-[100] overflow-y-auto">
           <div className="px-6 py-8 space-y-6 min-h-full flex flex-col">
             <a 
-              href="/" 
+              href={`/?lang=${language}`} 
               onClick={() => setMobileMenuOpen(false)}
               className="block text-xl font-bold text-white hover:text-blue-400 transition-colors py-3"
             >
               {t.nav.home}
             </a>
             <a 
-              href="/about" 
+              href={`/about?lang=${language}`} 
               onClick={() => setMobileMenuOpen(false)}
               className="block text-xl font-bold text-white hover:text-blue-400 transition-colors py-3"
             >
               {t.nav.about}
             </a>
             <a 
-              href="/instructions" 
+              href={`/instructions?lang=${language}`} 
               onClick={() => setMobileMenuOpen(false)}
               className="block text-xl font-bold text-white hover:text-blue-400 transition-colors py-3"
             >
@@ -152,7 +180,7 @@ export const Navigation: React.FC<NavigationProps> = ({ t, language, onLanguageC
                     <span>{language.toUpperCase()}</span>
                   </button>
                   {languageMenuOpen && (
-                    <div className="absolute top-full right-0 mt-2 bg-slate-800/95 backdrop-blur-xl rounded-2xl shadow-2xl py-2 min-w-[120px] border border-blue-900/30 animate-fadeIn z-[101]">
+                    <div className="absolute top-full right-0 mt-2 bg-slate-800/95 backdrop-blur-xl rounded-2xl shadow-2xl py-2 min-w-[120px] border border-blue-900/30 animate-fadeIn z-[101] max-h-[400px] overflow-y-auto">
                       <button 
                         onClick={() => { onLanguageChange('ua'); setLanguageMenuOpen(false); }} 
                         className="block w-full px-6 py-3 text-base font-bold hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
@@ -171,12 +199,39 @@ export const Navigation: React.FC<NavigationProps> = ({ t, language, onLanguageC
                       >
                         RU
                       </button>
+                      <button 
+                        onClick={() => { onLanguageChange('sk'); setLanguageMenuOpen(false); }} 
+                        className="block w-full px-6 py-3 text-base font-bold hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
+                      >
+                        SK
+                      </button>
+                      <button 
+                        onClick={() => { onLanguageChange('pl'); setLanguageMenuOpen(false); }} 
+                        className="block w-full px-6 py-3 text-base font-bold hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
+                      >
+                        PL
+                      </button>
+                      <button 
+                        onClick={() => { onLanguageChange('hi'); setLanguageMenuOpen(false); }} 
+                        className="block w-full px-6 py-3 text-base font-bold hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
+                      >
+                        HI
+                      </button>
+                      <button 
+                        onClick={() => { onLanguageChange('tr'); setLanguageMenuOpen(false); }} 
+                        className="block w-full px-6 py-3 text-base font-bold hover:bg-blue-900/30 text-left rounded-lg transition-all duration-200"
+                      >
+                        TR
+                      </button>
                     </div>
                   )}
                 </div>
               </div>
               <button 
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onRegisterClick?.();
+                }}
                 className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 px-8 py-4 rounded-xl text-lg font-semibold text-white transition-all duration-300 shadow-lg hover:shadow-blue-500/50 border border-blue-500/30 active:scale-95"
               >
                 {t.nav.register}

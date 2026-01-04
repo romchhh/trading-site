@@ -18,7 +18,7 @@ export const ToolsSection: React.FC<ToolsSectionProps> = ({ t }) => {
         <ScrollReveal>
           <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-blue-500 to-blue-400 bg-clip-text text-transparent">Інструменти</span>
+            <span className="bg-gradient-to-r from-blue-500 to-blue-400 bg-clip-text text-transparent">{t.tools.mainTitle}</span>
             <span className="text-white">, {t.tools.title}</span>
           </h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">{t.tools.subtitle}</p>
@@ -31,7 +31,7 @@ export const ToolsSection: React.FC<ToolsSectionProps> = ({ t }) => {
             <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
               <img 
                 src="/tools-chart.avif" 
-                alt="Financial Chart" 
+                alt={t.tools.chartAlt} 
                 className="w-full h-full object-cover"
               />
             </div>

@@ -69,7 +69,7 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
           {/* Users Card */}
           <div className="bg-gradient-to-br from-blue-900/30 to-blue-950/30 backdrop-blur-xl border border-blue-700/40 rounded-2xl p-5 shadow-xl hover:shadow-blue-500/20 transition-all duration-500 hover:scale-[1.02] hover:border-blue-600/60 group">
             <div className="flex items-center justify-between mb-2">
-              <div className="text-3xl md:text-4xl font-bold text-white group-hover:text-blue-100 transition-colors">8157</div>
+              <div className="text-3xl md:text-4xl font-bold text-white group-hover:text-blue-100 transition-colors">12545</div>
               <svg className="w-12 h-12 text-blue-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="12" cy="12" r="2" fill="currentColor" opacity="0.8"/>
                 <path d="M12 4 C8 4 5 7 5 11 M12 20 C8 20 5 17 5 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.6"/>
@@ -100,7 +100,7 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
           {/* Failed Signals Card */}
           <div className="bg-gradient-to-br from-blue-900/30 to-blue-950/30 backdrop-blur-xl border border-blue-700/40 rounded-2xl p-5 shadow-xl hover:shadow-blue-500/20 transition-all duration-500 hover:scale-[1.02] hover:border-blue-600/60 group">
             <div className="flex items-center justify-between mb-2">
-              <div className="text-3xl md:text-4xl font-bold text-white group-hover:text-blue-100 transition-colors">5115</div>
+              <div className="text-3xl md:text-4xl font-bold text-white group-hover:text-blue-100 transition-colors">2355</div>
               <svg className="w-16 h-12 text-red-400" viewBox="0 0 60 40" preserveAspectRatio="none">
                 <defs>
                   <linearGradient id="failedGradient" x1="0%" y1="0%" x2="0%" y2="100%">

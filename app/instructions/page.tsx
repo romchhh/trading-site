@@ -1,20 +1,37 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
+import { RegisterModal } from '../components/RegisterModal';
 import { translations, Language, Translations } from '../lib/translations';
-import { useState } from 'react';
 import { ScrollReveal } from '../components/ScrollReveal';
 
-export default function InstructionsPage() {
-  const [language, setLanguage] = useState<Language>('ua');
+function InstructionsPageContent() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const langParam = searchParams.get('lang') as Language | null;
+  const [language, setLanguage] = useState<Language>(langParam && ['ua', 'en', 'ru', 'sk', 'pl', 'hi', 'tr'].includes(langParam) ? langParam : 'ua');
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+  
+  useEffect(() => {
+    if (langParam && langParam !== language) {
+      setLanguage(langParam);
+    }
+  }, [langParam, language]);
+
+  const handleLanguageChange = (lang: Language) => {
+    setLanguage(lang);
+    router.push(`/instructions?lang=${lang}`);
+  };
+  
   const t: Translations = translations[language];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-950 to-black text-white font-sans" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-      <Navigation t={t} language={language} onLanguageChange={setLanguage} />
+      <Navigation t={t} language={language} onLanguageChange={handleLanguageChange} onRegisterClick={() => setIsRegisterModalOpen(true)} />
       
       {/* Hero Section */}
       <section className="pt-40 pb-20 px-4 sm:px-6 lg:px-8 relative">
@@ -22,10 +39,10 @@ export default function InstructionsPage() {
           <ScrollReveal>
             <div className="text-center mb-16">
               <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">
-                Інструкція
+                {t.instructions.hero.title}
               </h1>
               <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-                Навчальні матеріали для успішного старту
+                {t.instructions.hero.subtitle}
               </p>
             </div>
           </ScrollReveal>
@@ -41,8 +58,8 @@ export default function InstructionsPage() {
                         <path d="M8 5v14l11-7z"/>
                       </svg>
                     </div>
-                    <p className="text-slate-400 text-lg font-medium">Відео інструкція</p>
-                    <p className="text-slate-500 text-sm mt-2">Тут буде розміщено навчальне відео</p>
+                    <p className="text-slate-400 text-lg font-medium">{t.instructions.video.title}</p>
+                    <p className="text-slate-500 text-sm mt-2">{t.instructions.video.placeholder}</p>
                   </div>
                 </div>
               </div>
@@ -52,13 +69,16 @@ export default function InstructionsPage() {
           {/* Buttons Section */}
           <ScrollReveal delay={300}>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Link href="/">
+              <Link href={`/?lang=${language}`}>
                 <button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 px-10 py-4 rounded-xl text-lg font-semibold text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-blue-500/50 border border-blue-500/30 active:scale-95">
-                  На головну
+                  {t.instructions.buttons.home}
                 </button>
               </Link>
-              <button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 px-10 py-4 rounded-xl text-lg font-semibold text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-blue-500/50 border border-blue-500/30 active:scale-95">
-                Реєстрація
+              <button 
+                onClick={() => setIsRegisterModalOpen(true)}
+                className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 px-10 py-4 rounded-xl text-lg font-semibold text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-blue-500/50 border border-blue-500/30 active:scale-95"
+              >
+                {t.instructions.buttons.register}
               </button>
             </div>
           </ScrollReveal>
@@ -66,7 +86,20 @@ export default function InstructionsPage() {
       </section>
 
       <Footer t={t} />
+      <RegisterModal 
+        isOpen={isRegisterModalOpen} 
+        onClose={() => setIsRegisterModalOpen(false)} 
+        t={t} 
+      />
     </div>
+  );
+}
+
+export default function InstructionsPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-950 to-black" />}>
+      <InstructionsPageContent />
+    </Suspense>
   );
 }
 

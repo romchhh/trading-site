@@ -18,11 +18,11 @@ export const Footer: React.FC<FooterProps> = ({ t }) => {
               <h3 className="text-2xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent mb-4 cursor-pointer hover:opacity-80 transition-opacity inline-block">AI.BOOST</h3>
             </Link>
             <p className="text-slate-400 text-base leading-relaxed max-w-md mx-auto md:mx-0">
-              Ваш надійний партнер у світі фінансових інвестицій. Ми надаємо найкращі інструменти та сигнали для успішного трейдингу.
+              {t.footer.description}
             </p>
           </div>
           <div className="text-center md:text-right">
-            <h4 className="text-lg font-bold text-white mb-4">Швидкі посилання</h4>
+            <h4 className="text-lg font-bold text-white mb-4">{t.footer.quickLinks}</h4>
             <div className="space-y-3">
               <Link href="#" className="block text-slate-400 hover:text-blue-400 transition-colors text-base">{t.footer.telegram}</Link>
               <Link href="/terms" className="block text-slate-400 hover:text-blue-400 transition-colors text-base">{t.footer.terms}</Link>
@@ -34,7 +34,7 @@ export const Footer: React.FC<FooterProps> = ({ t }) => {
         <div className="pt-8 border-t border-blue-900/30 text-center space-y-4">
           <p className="text-base text-slate-400 font-medium">{t.footer.copyright}</p>
           <p className="text-sm text-slate-500">
-            Сайт розроблено{' '}
+            {t.footer.developedBy}{' '}
             <a 
               href="https://new.telebots.site/uk" 
               target="_blank" 
