@@ -31,19 +31,8 @@ export const Footer: React.FC<FooterProps> = ({ t }) => {
             </div>
           </div>
         </div>
-        <div className="pt-8 border-t border-blue-900/30 text-center space-y-4">
+        <div className="pt-8 border-t border-blue-900/30 text-center">
           <p className="text-base text-slate-400 font-medium">{t.footer.copyright}</p>
-          <p className="text-sm text-slate-500">
-            {t.footer.developedBy}{' '}
-            <a 
-              href="https://new.telebots.site/uk" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-blue-400 hover:text-blue-300 transition-colors font-medium"
-            >
-              TeleBots
-            </a>
-          </p>
         </div>
       </div>
     </footer>
