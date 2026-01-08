@@ -43,7 +43,11 @@ function AIBoostLandingContent() {
         onRegisterClick={() => setIsRegisterModalOpen(true)}
       />
       <Hero t={t} />
-      <TradingSection t={t} onRegisterClick={() => setIsRegisterModalOpen(true)} />
+      <TradingSection 
+        t={t} 
+        onRegisterClick={() => setIsRegisterModalOpen(true)}
+        onLoginClick={() => router.push('/login')}
+      />
       <PairsSection t={t} />
       <FAQSection t={t} />
       <ConfidentSection t={t} />

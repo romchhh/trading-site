@@ -173,6 +173,48 @@ type TranslationStructure = {
       register: string;
     };
   };
+  login: {
+    title: string;
+    subtitle: string;
+    email: string;
+    password: string;
+    forgotPassword: string;
+    loginButton: string;
+    loggingIn: string;
+    error: string;
+  };
+  aiSignals: {
+    title: string;
+    subtitle: string;
+    backToHome: string;
+    pairType: string;
+    otcPairs: string;
+    regularPairs: string;
+    selectPair: string;
+    timeframe: string;
+    timeframes: {
+      sec10: string;
+      sec15: string;
+      sec30: string;
+      min1: string;
+      min5: string;
+    };
+    generate: string;
+    generating: string;
+    signalGenerated: string;
+    readyToUse: string;
+    symbol: string;
+    direction: string;
+    timeTo: string;
+    buy: string;
+    sell: string;
+    getNewSignal: string;
+    readyToGenerate: string;
+    selectPairAndGenerate: string;
+    selectPairHint: string;
+    selectTimeframeHint: string;
+    analyzing: string;
+  };
 };
 
 export const translations: Record<Language, TranslationStructure> = {
@@ -398,6 +440,48 @@ export const translations: Record<Language, TranslationStructure> = {
         home: 'На головну',
         register: 'Реєстрація'
       }
+    },
+    login: {
+      title: 'Увійти',
+      subtitle: 'Введіть дані для доступу до AI сигналів',
+      email: 'Електронна пошта',
+      password: 'Пароль',
+      forgotPassword: 'Забули пароль?',
+      loginButton: 'Увійти',
+      loggingIn: 'Вхід...',
+      error: 'Невірний логін або пароль'
+    },
+    aiSignals: {
+      title: 'AI Сигнали',
+      subtitle: 'Оберіть пару та часовий фрейм для генерації точного торгового сигналу',
+      backToHome: 'На головну',
+      pairType: 'Тип пари',
+      otcPairs: 'OTC пари',
+      regularPairs: 'Звичайні пари',
+      selectPair: 'Вибір пари',
+      timeframe: 'Часовий фрейм',
+      timeframes: {
+        sec10: '10 сек',
+        sec15: '15 сек',
+        sec30: '30 сек',
+        min1: '1 мин',
+        min5: '5 мин'
+      },
+      generate: 'Генерувати',
+      generating: 'Генерація...',
+      signalGenerated: 'Сигнал згенеровано',
+      readyToUse: 'Готовий до використання',
+      symbol: 'Символ',
+      direction: 'Напрямок',
+      timeTo: 'Час до',
+      buy: 'Купівля',
+      sell: 'Продаж',
+      getNewSignal: 'Отримати новий сигнал',
+      readyToGenerate: 'Готові до генерації',
+      selectPairAndGenerate: 'Оберіть пару зліва та натисніть "Генерувати"',
+      selectPairHint: 'Оберіть валютну пару',
+      selectTimeframeHint: 'Оберіть часовий фрейм',
+      analyzing: 'Аналіз ринкових даних'
     }
   },
   en: {
@@ -622,6 +706,48 @@ export const translations: Record<Language, TranslationStructure> = {
         home: 'Home',
         register: 'Register'
       }
+    },
+    login: {
+      title: 'Login',
+      subtitle: 'Enter your credentials to access AI signals',
+      email: 'Email',
+      password: 'Password',
+      forgotPassword: 'Forgot password?',
+      loginButton: 'Login',
+      loggingIn: 'Logging in...',
+      error: 'Invalid email or password'
+    },
+    aiSignals: {
+      title: 'AI Signals',
+      subtitle: 'Select a pair and timeframe to generate an accurate trading signal',
+      backToHome: 'Back to home',
+      pairType: 'Pair Type',
+      otcPairs: 'OTC Pairs',
+      regularPairs: 'Regular Pairs',
+      selectPair: 'Select Pair',
+      timeframe: 'Timeframe',
+      timeframes: {
+        sec10: '10 sec',
+        sec15: '15 sec',
+        sec30: '30 sec',
+        min1: '1 min',
+        min5: '5 min'
+      },
+      generate: 'Generate',
+      generating: 'Generating...',
+      signalGenerated: 'Signal Generated',
+      readyToUse: 'Ready to use',
+      symbol: 'Symbol',
+      direction: 'Direction',
+      timeTo: 'Time to',
+      buy: 'Buy',
+      sell: 'Sell',
+      getNewSignal: 'Get New Signal',
+      readyToGenerate: 'Ready to generate',
+      selectPairAndGenerate: 'Select a pair on the left and click "Generate"',
+      selectPairHint: 'Select currency pair',
+      selectTimeframeHint: 'Select timeframe',
+      analyzing: 'Analyzing market data'
     }
   },
   ru: {
@@ -846,6 +972,48 @@ export const translations: Record<Language, TranslationStructure> = {
         home: 'На главную',
         register: 'Регистрация'
       }
+    },
+    login: {
+      title: 'Войти',
+      subtitle: 'Введите данные для доступа к AI сигналам',
+      email: 'Электронная почта',
+      password: 'Пароль',
+      forgotPassword: 'Забыли пароль?',
+      loginButton: 'Войти',
+      loggingIn: 'Вход...',
+      error: 'Неверный логин или пароль'
+    },
+    aiSignals: {
+      title: 'AI Сигналы',
+      subtitle: 'Выберите пару и таймфрейм для генерации точного торгового сигнала',
+      backToHome: 'На главную',
+      pairType: 'Тип пары',
+      otcPairs: 'OTC пары',
+      regularPairs: 'Обычные пары',
+      selectPair: 'Выбор пары',
+      timeframe: 'Таймфрейм',
+      timeframes: {
+        sec10: '10 сек',
+        sec15: '15 сек',
+        sec30: '30 сек',
+        min1: '1 мин',
+        min5: '5 мин'
+      },
+      generate: 'Генерировать',
+      generating: 'Генерация...',
+      signalGenerated: 'Сигнал сгенерирован',
+      readyToUse: 'Готов к использованию',
+      symbol: 'Символ',
+      direction: 'Направление',
+      timeTo: 'Время до',
+      buy: 'Покупка',
+      sell: 'Продажа',
+      getNewSignal: 'Получить новый сигнал',
+      readyToGenerate: 'Готовы к генерации',
+      selectPairAndGenerate: 'Выберите пару слева и нажмите "Генерировать"',
+      selectPairHint: 'Выберите валютную пару',
+      selectTimeframeHint: 'Выберите таймфрейм',
+      analyzing: 'Анализ рыночных данных'
     }
   },
   sk: {
@@ -1070,6 +1238,48 @@ export const translations: Record<Language, TranslationStructure> = {
         home: 'Domov',
         register: 'Registrácia'
       }
+    },
+    login: {
+      title: 'Prihlásiť sa',
+      subtitle: 'Zadajte údaje pre prístup k AI signálom',
+      email: 'E-mail',
+      password: 'Heslo',
+      forgotPassword: 'Zabudli ste heslo?',
+      loginButton: 'Prihlásiť sa',
+      loggingIn: 'Prihlasovanie...',
+      error: 'Nesprávny e-mail alebo heslo'
+    },
+    aiSignals: {
+      title: 'AI Signály',
+      subtitle: 'Vyberte pár a časový rámec pre generovanie presného obchodného signálu',
+      backToHome: 'Domov',
+      pairType: 'Typ páru',
+      otcPairs: 'OTC páry',
+      regularPairs: 'Bežné páry',
+      selectPair: 'Výber páru',
+      timeframe: 'Časový rámec',
+      timeframes: {
+        sec10: '10 sek',
+        sec15: '15 sek',
+        sec30: '30 sek',
+        min1: '1 min',
+        min5: '5 min'
+      },
+      generate: 'Generovať',
+      generating: 'Generovanie...',
+      signalGenerated: 'Signál vygenerovaný',
+      readyToUse: 'Pripravený na použitie',
+      symbol: 'Symbol',
+      direction: 'Smer',
+      timeTo: 'Čas do',
+      buy: 'Nákup',
+      sell: 'Predaj',
+      getNewSignal: 'Získať nový signál',
+      readyToGenerate: 'Pripravení na generovanie',
+      selectPairAndGenerate: 'Vyberte pár vľavo a kliknite na "Generovať"',
+      selectPairHint: 'Vyberte menový pár',
+      selectTimeframeHint: 'Vyberte časový rámec',
+      analyzing: 'Analýza trhových údajov'
     }
   },
   pl: {
@@ -1217,7 +1427,62 @@ export const translations: Record<Language, TranslationStructure> = {
       cookies: 'Polityka plików cookie'
     },
     about: { hero: { badge: 'O firmie', title: 'O nas', subtitle: 'Pomagamy traderom osiągać wolność finansową poprzez innowacyjne technologie i profesjonalne wsparcie', stats: { users: 'Użytkowników', countries: 'Krajów', accuracy: 'Dokładność' } }, whoWeAre: { title: 'Pomagamy traderom osiągać wolność finansową', mission: { title: 'Nasza misja', text: 'Nasza platforma została stworzona, aby uczynić handel dostępnym, zrozumiałym i zyskownym dla każdego. Łączymy ekspertów z dziedziny finansów, technologii i analityki, aby zapewnić Ci najlepsze rozwiązania do udanego handlu i osiągania celów finansowych.' }, innovation: { title: 'Innowacje i jakość', text: 'Jesteśmy dumni z oferowania innowacyjnych rozwiązań, które pomagają traderom podejmować właściwe decyzje, zmniejszać ryzyko i maksymalizować zyski. Każdy nasz sygnał jest dokładnie analizowany przez zespół profesjonalistów, a każdy instrument jest opracowany z myślą o potrzebach zarówno początkujących, jak i doświadczonych traderów.' }, success: { title: 'Twój sukces to nasz priorytet', text: 'Wierzymy, że dzięki właściwym sygnałom, danym i wiedzy każdy może stać się udanym traderem. Naszą misją jest zapewnienie Ci wszystkich niezbędnych zasobów i wsparcia do osiągnięcia wolności finansowej i niezależności.' } }, achievements: { title: 'Nasze osiągnięcia w liczbach', subtitle: 'Wierzymy, że dzięki właściwym sygnałom, danym i wiedzy każdy może stać się udanym traderem', items: [{ value: '8000+', label: 'zadowolonych użytkowników na całym świecie' }, { value: '25', label: 'krajów' }, { value: '87%', label: 'dokładność naszych sygnałów' }] }, team: { title: 'Nasz zespół', subtitle: 'Zespół, który pracuje dla Ciebie', members: [{ name: 'Ihor', role: 'Założyciel i CEO', avatar: '👨‍💼' }, { name: 'Sofia', role: 'Deweloper', avatar: '👩‍💻' }, { name: 'Denys', role: 'Menedżer wsparcia', avatar: '👨‍💬' }, { name: 'Dmytro', role: 'Deweloper AI', avatar: '🤖' }, { name: 'Anna', role: 'Starszy deweloper', avatar: '👩‍💻' }, { name: 'Oleksandr', role: 'Menedżer wsparcia', avatar: '👨‍💼' }] }, testimonials: { title: 'Opinie o nas', subtitle: 'Zawsze dążymy do osiągnięcia najwyższych standardów jakości i wspierania naszych klientów na każdym kroku', items: [{ name: 'Aleksander', text: 'Świetna platforma! Sygnały są bardzo dokładne, zysk wzrósł o 40% w miesiącu.', rating: 5 }, { name: 'Maria', text: 'Najlepsze wsparcie i intuicyjny interfejs. Polecam wszystkim!', rating: 5 }, { name: 'Dmitrij', text: 'Profesjonalne podejście do handlu. Dziękuję zespołowi za jakościową obsługę.', rating: 5 }, { name: 'Elena', text: 'Bardzo wygodne narzędzia, szczegółowa analityka. Bardzo zadowolona z wyników.', rating: 5 }, { name: 'Andrzej', text: 'Szybkie sygnały i dokładna analiza. To dokładnie to, czego potrzebujesz do udanego handlu.', rating: 5 }, { name: 'Julia', text: 'Doskonała obsługa! Udało mi się szybko nauczyć i zacząć zarabiać.', rating: 5 }] }, cta: { title: 'Masz pomysł na handel?', subtitle: 'Zacznij go realizować z nami już dziś!', button: 'Logowanie' } },
-    instructions: { hero: { title: 'Instrukcje', subtitle: 'Materiały edukacyjne do udanego startu' }, video: { title: 'Instrukcje wideo', placeholder: 'Tutaj zostanie umieszczony materiał edukacyjny' }, buttons: { home: 'Strona główna', register: 'Rejestracja' } }
+    instructions: {
+      hero: {
+        title: 'Instrukcje',
+        subtitle: 'Materiały edukacyjne do udanego startu'
+      },
+      video: {
+        title: 'Instrukcje wideo',
+        placeholder: 'Tutaj zostanie umieszczony materiał edukacyjny'
+      },
+      buttons: {
+        home: 'Strona główna',
+        register: 'Rejestracja'
+      }
+    },
+    login: {
+      title: 'Zaloguj się',
+      subtitle: 'Wprowadź dane, aby uzyskać dostęp do sygnałów AI',
+      email: 'E-mail',
+      password: 'Hasło',
+      forgotPassword: 'Zapomniałeś hasła?',
+      loginButton: 'Zaloguj się',
+      loggingIn: 'Logowanie...',
+      error: 'Nieprawidłowy e-mail lub hasło'
+    },
+    aiSignals: {
+      title: 'Sygnały AI',
+      subtitle: 'Wybierz parę i ramę czasową, aby wygenerować dokładny sygnał handlowy',
+      backToHome: 'Strona główna',
+      pairType: 'Typ pary',
+      otcPairs: 'Pary OTC',
+      regularPairs: 'Zwykłe pary',
+      selectPair: 'Wybierz parę',
+      timeframe: 'Rama czasowa',
+      timeframes: {
+        sec10: '10 sek',
+        sec15: '15 sek',
+        sec30: '30 sek',
+        min1: '1 min',
+        min5: '5 min'
+      },
+      generate: 'Generuj',
+      generating: 'Generowanie...',
+      signalGenerated: 'Sygnał wygenerowany',
+      readyToUse: 'Gotowy do użycia',
+      symbol: 'Symbol',
+      direction: 'Kierunek',
+      timeTo: 'Czas do',
+      buy: 'Kupno',
+      sell: 'Sprzedaż',
+      getNewSignal: 'Uzyskaj nowy sygnał',
+      readyToGenerate: 'Gotowi do generowania',
+      selectPairAndGenerate: 'Wybierz parę po lewej stronie i kliknij "Generuj"',
+      selectPairHint: 'Wybierz parę walutową',
+      selectTimeframeHint: 'Wybierz ramę czasową',
+      analyzing: 'Analiza danych rynkowych'
+    }
   },
   hi: {
     nav: {
@@ -1364,7 +1629,62 @@ export const translations: Record<Language, TranslationStructure> = {
       cookies: 'कुकी नीति'
     },
     about: { hero: { badge: 'कंपनी के बारे में', title: 'हमारे बारे में', subtitle: 'हम नवाचार तकनीकों और पेशेवर समर्थन के माध्यम से व्यापारियों को वित्तीय स्वतंत्रता प्राप्त करने में मदद करते हैं', stats: { users: 'उपयोगकर्ता', countries: 'देश', accuracy: 'सटीकता' } }, whoWeAre: { title: 'हम व्यापारियों को वित्तीय स्वतंत्रता प्राप्त करने में मदद करते हैं', mission: { title: 'हमारा मिशन', text: 'हमारा प्लेटफॉर्म हर किसी के लिए व्यापार को सुलभ, समझने योग्य और लाभदायक बनाने के लिए बनाया गया है। हम वित्त, प्रौद्योगिकी और विश्लेषण के क्षेत्र में विशेषज्ञों को एक साथ लाते हैं ताकि हम आपको सफल व्यापार और वित्तीय लक्ष्यों को प्राप्त करने के लिए सर्वोत्तम समाधान प्रदान कर सकें।' }, innovation: { title: 'नवाचार और गुणवत्ता', text: 'हमें गर्व है कि हम नवाचार समाधान प्रदान करते हैं जो व्यापारियों को सही निर्णय लेने, जोखिम कम करने और लाभ को अधिकतम करने में मदद करते हैं। हमारे प्रत्येक संकेत का पेशेवरों की टीम द्वारा सावधानीपूर्वक विश्लेषण किया जाता है, और प्रत्येक उपकरण शुरुआती और अनुभवी व्यापारियों दोनों की जरूरतों को ध्यान में रखकर विकसित किया गया है।' }, success: { title: 'आपकी सफलता हमारी प्राथमिकता है', text: 'हम मानते हैं कि सही संकेतों, डेटा और ज्ञान के साथ, हर कोई एक सफल व्यापारी बन सकता है। हमारा मिशन आपको वित्तीय स्वतंत्रता और स्वतंत्रता प्राप्त करने के लिए सभी आवश्यक संसाधन और समर्थन प्रदान करना है।' } }, achievements: { title: 'संख्याओं में हमारी उपलब्धियां', subtitle: 'हम मानते हैं कि सही संकेतों, डेटा और ज्ञान के साथ, हर कोई एक सफल व्यापारी बन सकता है', items: [{ value: '8000+', label: 'दुनिया भर में संतुष्ट उपयोगकर्ता' }, { value: '25', label: 'देश' }, { value: '87%', label: 'हमारे संकेतों की सटीकता' }] }, team: { title: 'हमारी टीम', subtitle: 'वह टीम जो आपके लिए काम करती है', members: [{ name: 'Ihor', role: 'संस्थापक और CEO', avatar: '👨‍💼' }, { name: 'Sofia', role: 'डेवलपर', avatar: '👩‍💻' }, { name: 'Denys', role: 'सहायता प्रबंधक', avatar: '👨‍💬' }, { name: 'Dmytro', role: 'AI डेवलपर', avatar: '🤖' }, { name: 'Anna', role: 'सीनियर डेवलपर', avatar: '👩‍💻' }, { name: 'Oleksandr', role: 'सहायता प्रबंधक', avatar: '👨‍💼' }] }, testimonials: { title: 'हमारे बारे में समीक्षा', subtitle: 'हम हमेशा उच्चतम गुणवत्ता मानकों को प्राप्त करने और हर कदम पर अपने ग्राहकों का समर्थन करने का प्रयास करते हैं', items: [{ name: 'अलेक्जेंडर', text: 'महान प्लेटफॉर्म! संकेत बहुत सटीक हैं, एक महीने में लाभ 40% बढ़ गया।', rating: 5 }, { name: 'मारिया', text: 'सर्वश्रेष्ठ समर्थन और सहज इंटरफेस। मैं सभी को सुझाव देती हूं!', rating: 5 }, { name: 'दिमित्री', text: 'व्यापार के लिए पेशेवर दृष्टिकोण। गुणवत्तापूर्ण सेवा के लिए टीम को धन्यवाद।', rating: 5 }, { name: 'एलेना', text: 'बहुत सुविधाजनक उपकरण, विस्तृत विश्लेषण। परिणामों से बहुत संतुष्ट।', rating: 5 }, { name: 'एंड्रयू', text: 'तेज संकेत और सटीक विश्लेषण। यह सफल व्यापार के लिए बिल्कुल वही है जो आपको चाहिए।', rating: 5 }, { name: 'जूलिया', text: 'उत्कृष्ट सेवा! मैं जल्दी सीखने और कमाई शुरू करने में सक्षम थी।', rating: 5 }] }, cta: { title: 'व्यापार विचार है?', subtitle: 'आज ही हमारे साथ इसे लागू करना शुरू करें!', button: 'लॉगिन' } },
-    instructions: { hero: { title: 'निर्देश', subtitle: 'सफल शुरुआत के लिए शैक्षिक सामग्री' }, video: { title: 'वीडियो निर्देश', placeholder: 'यहां शैक्षिक वीडियो रखा जाएगा' }, buttons: { home: 'होम', register: 'पंजीकरण' } }
+    instructions: {
+      hero: {
+        title: 'निर्देश',
+        subtitle: 'सफल शुरुआत के लिए शैक्षिक सामग्री'
+      },
+      video: {
+        title: 'वीडियो निर्देश',
+        placeholder: 'यहां शैक्षिक वीडियो रखा जाएगा'
+      },
+      buttons: {
+        home: 'होम',
+        register: 'पंजीकरण'
+      }
+    },
+    login: {
+      title: 'लॉगिन करें',
+      subtitle: 'AI संकेतों तक पहुंच के लिए अपनी जानकारी दर्ज करें',
+      email: 'ईमेल',
+      password: 'पासवर्ड',
+      forgotPassword: 'पासवर्ड भूल गए?',
+      loginButton: 'लॉगिन करें',
+      loggingIn: 'लॉगिन हो रहा है...',
+      error: 'गलत ईमेल या पासवर्ड'
+    },
+    aiSignals: {
+      title: 'AI संकेत',
+      subtitle: 'सटीक व्यापारिक संकेत उत्पन्न करने के लिए एक जोड़ी और समय सीमा चुनें',
+      backToHome: 'होम पर वापस',
+      pairType: 'जोड़ी प्रकार',
+      otcPairs: 'OTC जोड़े',
+      regularPairs: 'नियमित जोड़े',
+      selectPair: 'जोड़ी चुनें',
+      timeframe: 'समय सीमा',
+      timeframes: {
+        sec10: '10 सेक',
+        sec15: '15 सेक',
+        sec30: '30 सेक',
+        min1: '1 मिन',
+        min5: '5 मिन'
+      },
+      generate: 'उत्पन्न करें',
+      generating: 'उत्पन्न हो रहा है...',
+      signalGenerated: 'संकेत उत्पन्न',
+      readyToUse: 'उपयोग के लिए तैयार',
+      symbol: 'प्रतीक',
+      direction: 'दिशा',
+      timeTo: 'समय तक',
+      buy: 'खरीदें',
+      sell: 'बेचें',
+      getNewSignal: 'नया संकेत प्राप्त करें',
+      readyToGenerate: 'उत्पन्न करने के लिए तैयार',
+      selectPairAndGenerate: 'बाएं से एक जोड़ी चुनें और "उत्पन्न करें" पर क्लिक करें',
+      selectPairHint: 'मुद्रा जोड़ी चुनें',
+      selectTimeframeHint: 'समय सीमा चुनें',
+      analyzing: 'बाजार डेटा का विश्लेषण'
+    }
   },
   tr: {
     nav: {
@@ -1511,7 +1831,62 @@ export const translations: Record<Language, TranslationStructure> = {
       cookies: 'Çerez Politikası'
     },
     about: { hero: { badge: 'Şirket Hakkında', title: 'Hakkımızda', subtitle: 'Yenilikçi teknolojiler ve profesyonel destek aracılığıyla yatırımcılara finansal özgürlük kazandırmalarına yardımcı oluyoruz', stats: { users: 'Kullanıcılar', countries: 'Ülkeler', accuracy: 'Doğruluk' } }, whoWeAre: { title: 'Yatırımcılara finansal özgürlük kazandırmalarına yardımcı oluyoruz', mission: { title: 'Misyonumuz', text: 'Platformumuz, herkes için ticareti erişilebilir, anlaşılır ve karlı hale getirmek için oluşturulmuştur. Başarılı ticaret ve finansal hedeflere ulaşmak için size en iyi çözümleri sunmak üzere finans, teknoloji ve analitik alanlarındaki uzmanları bir araya getiriyoruz.' }, innovation: { title: 'Yenilik ve Kalite', text: 'Yatırımcıların doğru kararlar vermesine, riskleri azaltmasına ve karları maksimize etmesine yardımcı olan yenilikçi çözümler sunmaktan gurur duyuyoruz. Her sinyalimiz profesyonellerden oluşan bir ekip tarafından dikkatle analiz edilir ve her araç hem yeni başlayanlar hem de deneyimli yatırımcıların ihtiyaçları dikkate alınarak geliştirilmiştir.' }, success: { title: 'Başarınız Önceliğimizdir', text: 'Doğru sinyaller, veriler ve bilgilerle herkesin başarılı bir yatırımcı olabileceğine inanıyoruz. Misyonumuz, finansal özgürlük ve bağımsızlığa ulaşmak için ihtiyacınız olan tüm kaynakları ve desteği sağlamaktır.' } }, achievements: { title: 'Sayılarla Başarılarımız', subtitle: 'Doğru sinyaller, veriler ve bilgilerle herkesin başarılı bir yatırımcı olabileceğine inanıyoruz', items: [{ value: '8000+', label: 'dünya çapında memnun kullanıcı' }, { value: '25', label: 'ülke' }, { value: '87%', label: 'sinyallerimizin doğruluğu' }] }, team: { title: 'Ekibimiz', subtitle: 'Sizin için çalışan ekip', members: [{ name: 'Ihor', role: 'Kurucu ve CEO', avatar: '👨‍💼' }, { name: 'Sofia', role: 'Geliştirici', avatar: '👩‍💻' }, { name: 'Denys', role: 'Destek Yöneticisi', avatar: '👨‍💬' }, { name: 'Dmytro', role: 'AI Geliştirici', avatar: '🤖' }, { name: 'Anna', role: 'Kıdemli Geliştirici', avatar: '👩‍💻' }, { name: 'Oleksandr', role: 'Destek Yöneticisi', avatar: '👨‍💼' }] }, testimonials: { title: 'Hakkımızda Yorumlar', subtitle: 'Her zaman en yüksek kalite standartlarına ulaşmaya ve müşterilerimizi her adımda desteklemeye çalışıyoruz', items: [{ name: 'Aleksandr', text: 'Harika platform! Sinyaller çok doğru, bir ayda kar %40 arttı.', rating: 5 }, { name: 'Maria', text: 'En iyi destek ve sezgisel arayüz. Herkese tavsiye ederim!', rating: 5 }, { name: 'Dmitry', text: 'Ticarete profesyonel yaklaşım. Kaliteli hizmet için ekibe teşekkürler.', rating: 5 }, { name: 'Elena', text: 'Çok kullanışlı araçlar, detaylı analitik. Sonuçlardan çok memnunum.', rating: 5 }, { name: 'Andrew', text: 'Hızlı sinyaller ve doğru analiz. Başarılı ticaret için tam olarak ihtiyacınız olan şey bu.', rating: 5 }, { name: 'Julia', text: 'Mükemmel hizmet! Hızlı öğrenebildim ve kazanmaya başladım.', rating: 5 }] }, cta: { title: 'Ticaret fikriniz var mı?', subtitle: 'Bugün bizimle uygulamaya başlayın!', button: 'Giriş Yap' } },
-    instructions: { hero: { title: 'Talimatlar', subtitle: 'Başarılı bir başlangıç için eğitim materyalleri' }, video: { title: 'Video Talimatları', placeholder: 'Eğitim videosu buraya yerleştirilecek' }, buttons: { home: 'Ana Sayfa', register: 'Kayıt Ol' } }
+    instructions: {
+      hero: {
+        title: 'Talimatlar',
+        subtitle: 'Başarılı bir başlangıç için eğitim materyalleri'
+      },
+      video: {
+        title: 'Video Talimatları',
+        placeholder: 'Eğitim videosu buraya yerleştirilecek'
+      },
+      buttons: {
+        home: 'Ana Sayfa',
+        register: 'Kayıt Ol'
+      }
+    },
+    login: {
+      title: 'Giriş Yap',
+      subtitle: 'AI sinyallerine erişmek için bilgilerinizi girin',
+      email: 'E-posta',
+      password: 'Şifre',
+      forgotPassword: 'Şifrenizi mi unuttunuz?',
+      loginButton: 'Giriş Yap',
+      loggingIn: 'Giriş yapılıyor...',
+      error: 'Geçersiz e-posta veya şifre'
+    },
+    aiSignals: {
+      title: 'AI Sinyalleri',
+      subtitle: 'Kesin bir ticaret sinyali oluşturmak için bir çift ve zaman dilimi seçin',
+      backToHome: 'Ana Sayfa',
+      pairType: 'Çift Türü',
+      otcPairs: 'OTC Çiftleri',
+      regularPairs: 'Normal Çiftler',
+      selectPair: 'Çift Seç',
+      timeframe: 'Zaman Dilimi',
+      timeframes: {
+        sec10: '10 sn',
+        sec15: '15 sn',
+        sec30: '30 sn',
+        min1: '1 dk',
+        min5: '5 dk'
+      },
+      generate: 'Oluştur',
+      generating: 'Oluşturuluyor...',
+      signalGenerated: 'Sinyal Oluşturuldu',
+      readyToUse: 'Kullanıma hazır',
+      symbol: 'Sembol',
+      direction: 'Yön',
+      timeTo: 'Zaman',
+      buy: 'Satın Al',
+      sell: 'Sat',
+      getNewSignal: 'Yeni Sinyal Al',
+      readyToGenerate: 'Oluşturmaya hazır',
+      selectPairAndGenerate: 'Soldan bir çift seçin ve "Oluştur"a tıklayın',
+      selectPairHint: 'Para birimi çifti seçin',
+      selectTimeframeHint: 'Zaman dilimi seçin',
+      analyzing: 'Piyasa verileri analiz ediliyor'
+    }
   }
 };
 

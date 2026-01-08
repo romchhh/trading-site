@@ -7,9 +7,10 @@ import { ScrollReveal } from './ScrollReveal';
 interface TradingSectionProps {
   t: Translations;
   onRegisterClick?: () => void;
+  onLoginClick?: () => void;
 }
 
-export const TradingSection: React.FC<TradingSectionProps> = ({ t, onRegisterClick }) => {
+export const TradingSection: React.FC<TradingSectionProps> = ({ t, onRegisterClick, onLoginClick }) => {
   return (
     <section className="py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent via-black/40 to-transparent relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
@@ -21,7 +22,11 @@ export const TradingSection: React.FC<TradingSectionProps> = ({ t, onRegisterCli
           </h2>
           <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed">{t.trading.subtitle}</p>
           <button 
-            onClick={onRegisterClick}
+            onClick={() => {
+              if (onLoginClick) {
+                onLoginClick();
+              }
+            }}
             className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 px-10 py-4 rounded-xl text-lg font-semibold text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-blue-500/50 border border-blue-500/30 active:scale-95"
           >
             {t.trading.button}
