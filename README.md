@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Options Site - Trading Platform
 
-## Getting Started
+Платформа для трейдингу з системою реєстрації, верифікації та адмін панеллю.
 
-First, run the development server:
+## Технології
 
+- Next.js 16.1.1
+- React 19.2.3
+- TypeScript
+- SQLite (better-sqlite3) - прямі SQL запити
+- Tailwind CSS
+- bcryptjs (для хешування паролів)
+
+## Встановлення
+
+1. Встановіть залежності:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Створіть файл `.env` у корені проекту:
+```bash
+cp .env.example .env
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Відредагуйте файл `.env` та встановіть email та пароль адміністратора:
+```
+ADMIN_EMAIL=your@email.com
+ADMIN_PASSWORD=yourpassword
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Створіть адміністраторський акаунт (база даних створиться автоматично):
+```bash
+npm run db:seed
+```
 
-## Learn More
+5. Запустіть сервер розробки:
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Відкрийте [http://localhost:3003](http://localhost:3003) у браузері.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+> **Примітка**: Сайт запускається на порті 3003 за замовчуванням.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Структура проекту
 
-## Deploy on Vercel
+- `/app` - Next.js App Router сторінки та компоненти
+- `/app/api` - API роути для реєстрації, авторизації та адмінки
+- `/app/admin` - Адмін панель для управління користувачами
+- `/app/ai-signals` - Сторінка з торговими сигналами (потрібна верифікація)
+- `/lib` - Утиліти та хелпери (DB client, auth helpers)
+- `/scripts` - Seed скрипт для створення адміністратора
+- `/prisma` - SQLite база даних (створюється автоматично)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Функціонал
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Реєстрація користувачів
+- Користувачі реєструються з email, паролем та опціональним ID акаунту Pocket Options
+- Дані зберігаються в SQLite базі даних
+- Після реєстрації користувач очікує підтвердження від адміністратора
+
+### Авторизація
+- Вхід через email та пароль
+- Після входу дані користувача зберігаються в sessionStorage
+- Адміністратори перенаправляються на `/admin`
+- Звичайні користувачі перенаправляються на `/ai-signals` (якщо верифіковані)
+
+### Адмін панель (`/admin`)
+- Перегляд всіх користувачів
+- Підтвердження/скасування підтвердження користувачів
+- Доступ тільки для користувачів з `isAdmin: true`
+
+### Торгові сигнали (`/ai-signals`)
+- Доступ тільки для верифікованих користувачів (`isVerified: true`)
+- Генерація торгових сигналів для різних пар та таймфреймів
+
+## API Endpoints
+
+- `POST /api/register` - Реєстрація нового користувача
+- `POST /api/login` - Вхід користувача
+- `GET /api/auth/check` - Перевірка статусу авторизації
+- `GET /api/admin/users` - Отримання списку користувачів (тільки для адмінів)
+- `POST /api/admin/verify-user` - Підтвердження користувача (тільки для адмінів)
+- `POST /api/admin/unverify-user` - Скасування підтвердження користувача (тільки для адмінів)
+
+## База даних
+
+База даних SQLite створюється автоматично при першому запуску в `prisma/dev.db`.
+
+Схема користувача:
+- `id` - Унікальний ідентифікатор (INTEGER PRIMARY KEY)
+- `email` - Email користувача (UNIQUE, TEXT)
+- `password` - Хешований пароль (TEXT)
+- `pocketOptionsId` - ID акаунту Pocket Options (TEXT, опціонально)
+- `isVerified` - Статус підтвердження (INTEGER, 0/1)
+- `isPocketOptionsIdVerified` - Статус підтвердження Pocket Options ID (INTEGER, 0/1)
+- `isAdmin` - Права адміністратора (INTEGER, 0/1)
+- `createdAt` - Дата створення (DATETIME)
+- `updatedAt` - Дата оновлення (DATETIME, оновлюється автоматично)
+
+## Змінні оточення
+
+Створіть файл `.env` у корені проекту на основі `.env.example`:
+
+**Обов'язкові змінні:**
+- `ADMIN_EMAIL` - Email адміністратора (обов'язково)
+- `ADMIN_PASSWORD` - Пароль адміністратора (обов'язково)
+
+**Приклад `.env` файлу:**
+```
+ADMIN_EMAIL=admin@example.com
+ADMIN_PASSWORD=admin123456
+```
+
+> ⚠️ **Важливо**: Файл `.env` вже додано в `.gitignore` і не буде закомічений у репозиторій. Не передавайте файл `.env` іншим особам і не публікуйте його.
+
+## Команди
+
+- `npm run dev` - Запуск сервера розробки
+- `npm run build` - Збірка проекту
+- `npm run start` - Запуск продакшн сервера
+- `npm run db:seed` - Створення адміністраторського акаунта

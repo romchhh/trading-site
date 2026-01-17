@@ -12,14 +12,11 @@ import { ConfidentSection } from './components/ConfidentSection';
 import { ToolsSection } from './components/ToolsSection';
 import { HowItWorksSection } from './components/HowItWorksSection';
 import { Footer } from './components/Footer';
-import { RegisterModal } from './components/RegisterModal';
-
 function AIBoostLandingContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const langParam = searchParams.get('lang') as Language | null;
   const [language, setLanguage] = useState<Language>(langParam && ['ua', 'en', 'ru', 'sk', 'pl', 'hi', 'tr'].includes(langParam) ? langParam : 'ua');
-  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   
   useEffect(() => {
     if (langParam && langParam !== language) {
@@ -40,25 +37,20 @@ function AIBoostLandingContent() {
         t={t} 
         language={language} 
         onLanguageChange={handleLanguageChange}
-        onRegisterClick={() => setIsRegisterModalOpen(true)}
+        onRegisterClick={() => router.push('/login')}
       />
       <Hero t={t} />
       <TradingSection 
         t={t} 
-        onRegisterClick={() => setIsRegisterModalOpen(true)}
+        onRegisterClick={() => router.push('/login')}
         onLoginClick={() => router.push('/login')}
       />
       <PairsSection t={t} />
       <FAQSection t={t} />
       <ConfidentSection t={t} />
       <ToolsSection t={t} />
-      <HowItWorksSection t={t} onRegisterClick={() => setIsRegisterModalOpen(true)} />
+      <HowItWorksSection t={t} onRegisterClick={() => router.push('/login')} />
       <Footer t={t} />
-      <RegisterModal 
-        isOpen={isRegisterModalOpen} 
-        onClose={() => setIsRegisterModalOpen(false)} 
-        t={t} 
-      />
     </div>
   );
 }

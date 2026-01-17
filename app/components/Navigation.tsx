@@ -121,7 +121,7 @@ export const Navigation: React.FC<NavigationProps> = ({ t, language, onLanguageC
             </div>
             
             <button 
-              onClick={onRegisterClick}
+              onClick={() => window.location.href = '/login'}
               className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 px-8 py-3 rounded-xl text-base font-semibold text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-blue-500/50 border border-blue-500/30 active:scale-95"
             >
               {t.nav.register}

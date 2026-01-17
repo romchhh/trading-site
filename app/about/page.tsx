@@ -7,7 +7,6 @@ import { TrendingUp, Globe, Target, Target as MissionIcon, Users, Zap, Shield, T
 import { ScrollReveal } from '../components/ScrollReveal';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
-import { RegisterModal } from '../components/RegisterModal';
 import { translations, Language, Translations } from '../lib/translations';
 
 function AboutPageContent() {
@@ -15,7 +14,6 @@ function AboutPageContent() {
   const router = useRouter();
   const langParam = searchParams.get('lang') as Language | null;
   const [language, setLanguage] = useState<Language>(langParam && ['ua', 'en', 'ru', 'sk', 'pl', 'hi', 'tr'].includes(langParam) ? langParam : 'ua');
-  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   
   useEffect(() => {
     if (langParam && langParam !== language) {
@@ -40,7 +38,7 @@ function AboutPageContent() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-950 to-black text-white font-sans" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-      <Navigation t={t} language={language} onLanguageChange={handleLanguageChange} onRegisterClick={() => setIsRegisterModalOpen(true)} />
+      <Navigation t={t} language={language} onLanguageChange={handleLanguageChange} onRegisterClick={() => router.push('/login')} />
       
       {/* Hero Section with Background */}
       <section className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden min-h-[70vh] flex items-center">
@@ -285,7 +283,7 @@ function AboutPageContent() {
               {t.about.cta.subtitle}
             </p>
             <button 
-              onClick={() => setIsRegisterModalOpen(true)}
+              onClick={() => router.push('/login')}
               className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 px-10 py-4 rounded-xl text-lg font-semibold text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-blue-500/50 border border-blue-500/30 active:scale-95"
             >
               {t.about.cta.button}
@@ -296,11 +294,6 @@ function AboutPageContent() {
       </section>
 
       <Footer t={t} />
-      <RegisterModal 
-        isOpen={isRegisterModalOpen} 
-        onClose={() => setIsRegisterModalOpen(false)} 
-        t={t} 
-      />
     </div>
   );
 }

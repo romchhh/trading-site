@@ -118,10 +118,21 @@ function AISignalsContent() {
   }, [langParam, language]);
 
   useEffect(() => {
-    // Check authentication
+    // Check authentication and Pocket Options ID verification
     const isAuthenticated = sessionStorage.getItem('isAuthenticated');
-    if (!isAuthenticated) {
+    const isPocketOptionsIdVerified = sessionStorage.getItem('isPocketOptionsIdVerified') === 'true';
+    const userEmail = sessionStorage.getItem('userEmail');
+    
+    if (!isAuthenticated || !userEmail) {
+      router.push('/login');
+      return;
+    }
+
+    if (!isPocketOptionsIdVerified) {
+      // Show message that Pocket Options ID needs verification
+      alert('Ваш Pocket Options ID не підтверджено. Очікуйте підтвердження від адміністратора.');
       router.push('/');
+      return;
     }
   }, [router]);
 
