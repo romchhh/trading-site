@@ -23,11 +23,21 @@ npm install
 cp .env.example .env
 ```
 
-3. Відредагуйте файл `.env` та встановіть email та пароль адміністратора:
+3. Відредагуйте файл `.env` та встановіть email та пароль адміністратора, а також дані для Telegram сповіщень:
 ```
 ADMIN_EMAIL=your@email.com
 ADMIN_PASSWORD=yourpassword
+TELEGRAM_BOT_TOKEN=your_bot_token
+TELEGRAM_CHAT_ID=your_chat_id
 ```
+
+**Як отримати Telegram токен та Chat ID:**
+- Створіть бота через [@BotFather](https://t.me/BotFather) в Telegram
+- Отримайте токен бота від BotFather
+- Щоб отримати Chat ID:
+  1. Напишіть будь-яке повідомлення вашому боту
+  2. Відкрийте в браузері: `https://api.telegram.org/bot<ваш_токен>/getUpdates`
+  3. Знайдіть `"chat":{"id":123456789}` - це ваш Chat ID
 
 4. Створіть адміністраторський акаунт (база даних створиться автоматично):
 ```bash

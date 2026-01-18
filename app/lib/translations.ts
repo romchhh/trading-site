@@ -77,11 +77,14 @@ type TranslationStructure = {
     title: string;
     subtitle: string;
     registerLink: string;
+    registerLinkLabel: string;
     registerButton: string;
     promoCode: string;
+    promoCodeLabel: string;
     minDeposit: string;
     bonus: string;
     bonusDescription: string;
+    bonusDescriptionFull: string;
     checkBalance: string;
     accountIdPlaceholder: string;
     accountIdRequired: string;
@@ -90,6 +93,8 @@ type TranslationStructure = {
     sent: string;
     successMessage: string;
     sendError: string;
+    postRegisterTitle: string;
+    postRegisterSubtitle: string;
   };
   footer: {
     description: string;
@@ -246,11 +251,14 @@ export const translations: Record<Language, TranslationStructure> = {
       title: 'Реєстрація',
       subtitle: 'Зареєструйтеся та отримайте бонус до балансу',
       registerLink: 'Посилання на реєстрацію',
+      registerLinkLabel: 'Посилання для реєстрації на платформі PocketOption',
       registerButton: 'Зареєструватися',
       promoCode: 'Промокод',
+      promoCodeLabel: 'Використовуй промокод на PocketOption при поповненні від 50$ та отримай +60% бонусу до балансу',
       minDeposit: 'Мінімальна сума поповнення',
       bonus: 'Бонус',
       bonusDescription: 'до балансу',
+      bonusDescriptionFull: 'до балансу при використанні промокоду',
       checkBalance: 'Перевірка балансу',
       accountIdPlaceholder: 'Введіть ID акаунту',
       accountIdRequired: 'Будь ласка, введіть ID акаунту',
@@ -258,7 +266,9 @@ export const translations: Record<Language, TranslationStructure> = {
       sending: 'Відправка...',
       sent: 'Відправлено',
       successMessage: 'Ваш запит відправлено! Ми зв\'яжемося з вами найближчим часом.',
-      sendError: 'Помилка відправки. Спробуйте пізніше.'
+      sendError: 'Помилка відправки. Спробуйте пізніше.',
+      postRegisterTitle: 'Реєстрація успішна!',
+      postRegisterSubtitle: 'Щоб отримувати торгові сигнали, завершіть реєстрацію акаунту на платформі Pocket Option'
     },
     pairs: {
       title: 'Пари та Інструменти для трейдингу',
@@ -604,11 +614,14 @@ export const translations: Record<Language, TranslationStructure> = {
       title: 'Registration',
       subtitle: 'Register and get a bonus to your balance',
       registerLink: 'Registration link',
+      registerLinkLabel: 'Registration link on PocketOption platform',
       registerButton: 'Register',
       promoCode: 'Promo code',
+      promoCodeLabel: 'Use promo code on PocketOption when depositing from $50 and get +60% bonus to your balance',
       minDeposit: 'Minimum deposit',
       bonus: 'Bonus',
       bonusDescription: 'to balance',
+      bonusDescriptionFull: 'to balance when using promo code',
       checkBalance: 'Balance check',
       accountIdPlaceholder: 'Enter account ID',
       accountIdRequired: 'Please enter account ID',
@@ -616,7 +629,9 @@ export const translations: Record<Language, TranslationStructure> = {
       sending: 'Sending...',
       sent: 'Sent',
       successMessage: 'Your request has been sent! We will contact you soon.',
-      sendError: 'Send error. Please try again later.'
+      sendError: 'Send error. Please try again later.',
+      postRegisterTitle: 'Registration successful!',
+      postRegisterSubtitle: 'To receive trading signals, complete your account registration on Pocket Option platform'
     },
     footer: {
       description: 'Your reliable partner in the world of financial investments. We provide the best tools and signals for successful trading.',
@@ -870,11 +885,14 @@ export const translations: Record<Language, TranslationStructure> = {
       title: 'Регистрация',
       subtitle: 'Зарегистрируйтесь и получите бонус на баланс',
       registerLink: 'Ссылка на регистрацию',
+      registerLinkLabel: 'Ссылка для регистрации на платформе PocketOption',
       registerButton: 'Зарегистрироваться',
       promoCode: 'Промокод',
+      promoCodeLabel: 'Используй промокод на PocketOption при пополнении от 50$ и получи +60% бонуса на баланс',
       minDeposit: 'Минимальная сумма пополнения',
       bonus: 'Бонус',
       bonusDescription: 'на баланс',
+      bonusDescriptionFull: 'на баланс при использовании промокода',
       checkBalance: 'Проверка баланса',
       accountIdPlaceholder: 'Введите ID аккаунта',
       accountIdRequired: 'Пожалуйста, введите ID аккаунта',
@@ -882,7 +900,9 @@ export const translations: Record<Language, TranslationStructure> = {
       sending: 'Отправка...',
       sent: 'Отправлено',
       successMessage: 'Ваш запрос отправлен! Мы свяжемся с вами в ближайшее время.',
-      sendError: 'Ошибка отправки. Попробуйте позже.'
+      sendError: 'Ошибка отправки. Попробуйте позже.',
+      postRegisterTitle: 'Регистрация успешна!',
+      postRegisterSubtitle: 'Чтобы получать торговые сигналы, завершите регистрацию аккаунта на платформе Pocket Option'
     },
     footer: {
       description: 'Ваш надежный партнер в мире финансовых инвестиций. Мы предоставляем лучшие инструменты и сигналы для успешного трейдинга.',
@@ -1136,11 +1156,14 @@ export const translations: Record<Language, TranslationStructure> = {
       title: 'Registrácia',
       subtitle: 'Zaregistrujte sa a získajte bonus na váš zostatok',
       registerLink: 'Odkaz na registráciu',
+      registerLinkLabel: 'Odkaz na registráciu na platforme PocketOption',
       registerButton: 'Zaregistrovať sa',
       promoCode: 'Promo kód',
+      promoCodeLabel: 'Použite promo kód na PocketOption pri vklade od 50$ a získajte +60% bonusu na zostatok',
       minDeposit: 'Minimálna suma vkladu',
       bonus: 'Bonus',
       bonusDescription: 'na zostatok',
+      bonusDescriptionFull: 'na zostatok pri použití promo kódu',
       checkBalance: 'Kontrola zostatku',
       accountIdPlaceholder: 'Zadajte ID účtu',
       accountIdRequired: 'Prosím, zadajte ID účtu',
@@ -1148,7 +1171,9 @@ export const translations: Record<Language, TranslationStructure> = {
       sending: 'Odosielanie...',
       sent: 'Odoslané',
       successMessage: 'Vaša požiadavka bola odoslaná! Čoskoro vás budeme kontaktovať.',
-      sendError: 'Chyba odoslania. Skúste to neskôr.'
+      sendError: 'Chyba odoslania. Skúste to neskôr.',
+      postRegisterTitle: 'Registrácia úspešná!',
+      postRegisterSubtitle: 'Aby ste dostávali obchodné signály, dokončite registráciu účtu na platforme Pocket Option'
     },
     footer: {
       description: 'Váš spoľahlivý partner vo svete finančných investícií. Poskytujeme najlepšie nástroje a signály pre úspešné obchodovanie.',
@@ -1402,11 +1427,14 @@ export const translations: Record<Language, TranslationStructure> = {
       title: 'Rejestracja',
       subtitle: 'Zarejestruj się i otrzymaj bonus na saldo',
       registerLink: 'Link rejestracyjny',
+      registerLinkLabel: 'Link rejestracyjny na platformie PocketOption',
       registerButton: 'Zarejestruj się',
       promoCode: 'Kod promocyjny',
+      promoCodeLabel: 'Użyj kodu promocyjnego na PocketOption przy wpłacie od 50$ i otrzymaj +60% bonusu na saldo',
       minDeposit: 'Minimalna kwota wpłaty',
       bonus: 'Bonus',
       bonusDescription: 'na saldo',
+      bonusDescriptionFull: 'na saldo przy użyciu kodu promocyjnego',
       checkBalance: 'Sprawdzenie salda',
       accountIdPlaceholder: 'Wprowadź ID konta',
       accountIdRequired: 'Proszę wprowadzić ID konta',
@@ -1414,7 +1442,9 @@ export const translations: Record<Language, TranslationStructure> = {
       sending: 'Wysyłanie...',
       sent: 'Wysłane',
       successMessage: 'Twoje żądanie zostało wysłane! Skontaktujemy się z Tobą wkrótce.',
-      sendError: 'Błąd wysyłania. Spróbuj ponownie później.'
+      sendError: 'Błąd wysyłania. Spróbuj ponownie później.',
+      postRegisterTitle: 'Rejestracja udana!',
+      postRegisterSubtitle: 'Aby otrzymywać sygnały handlowe, dokończ rejestrację konta na platformie Pocket Option'
     },
     footer: {
       description: 'Twój niezawodny partner w świecie inwestycji finansowych. Zapewniamy najlepsze narzędzia i sygnały do udanego handlu.',
@@ -1604,11 +1634,14 @@ export const translations: Record<Language, TranslationStructure> = {
       title: 'पंजीकरण',
       subtitle: 'पंजीकरण करें और अपने बैलेंस पर बोनस प्राप्त करें',
       registerLink: 'पंजीकरण लिंक',
+      registerLinkLabel: 'PocketOption प्लेटफॉर्म पर पंजीकरण लिंक',
       registerButton: 'पंजीकरण करें',
       promoCode: 'प्रोमो कोड',
+      promoCodeLabel: '$50 से जमा करते समय PocketOption पर प्रोमो कोड का उपयोग करें और अपने बैलेंस पर +60% बोनस प्राप्त करें',
       minDeposit: 'न्यूनतम जमा राशि',
       bonus: 'बोनस',
       bonusDescription: 'बैलेंस पर',
+      bonusDescriptionFull: 'प्रोमो कोड का उपयोग करते समय बैलेंस पर',
       checkBalance: 'बैलेंस जांच',
       accountIdPlaceholder: 'खाता ID दर्ज करें',
       accountIdRequired: 'कृपया खाता ID दर्ज करें',
@@ -1616,7 +1649,9 @@ export const translations: Record<Language, TranslationStructure> = {
       sending: 'भेज रहा है...',
       sent: 'भेजा गया',
       successMessage: 'आपका अनुरोध भेजा गया है! हम जल्द ही आपसे संपर्क करेंगे।',
-      sendError: 'भेजने में त्रुटि। कृपया बाद में पुनः प्रयास करें।'
+      sendError: 'भेजने में त्रुटि। कृपया बाद में पुनः प्रयास करें।',
+      postRegisterTitle: 'पंजीकरण सफल!',
+      postRegisterSubtitle: 'ट्रेडिंग संकेत प्राप्त करने के लिए, Pocket Option प्लेटफॉर्म पर अपने खाते की पंजीकरण पूरी करें'
     },
     footer: {
       description: 'वित्तीय निवेश की दुनिया में आपका विश्वसनीय साथी। हम सफल व्यापार के लिए सर्वोत्तम उपकरण और संकेत प्रदान करते हैं।',
@@ -1806,11 +1841,14 @@ export const translations: Record<Language, TranslationStructure> = {
       title: 'Kayıt',
       subtitle: 'Kayıt olun ve bakiyenize bonus alın',
       registerLink: 'Kayıt bağlantısı',
+      registerLinkLabel: 'PocketOption platformundaki kayıt bağlantısı',
       registerButton: 'Kayıt Ol',
       promoCode: 'Promosyon kodu',
+      promoCodeLabel: '$50\'den itibaren yatırım yaparken PocketOption\'da promosyon kodunu kullanın ve bakiyenize +60% bonus alın',
       minDeposit: 'Minimum yatırım tutarı',
       bonus: 'Bonus',
       bonusDescription: 'bakiyeye',
+      bonusDescriptionFull: 'promosyon kodu kullanırken bakiyeye',
       checkBalance: 'Bakiye kontrolü',
       accountIdPlaceholder: 'Hesap ID\'sini girin',
       accountIdRequired: 'Lütfen hesap ID\'sini girin',
@@ -1818,7 +1856,9 @@ export const translations: Record<Language, TranslationStructure> = {
       sending: 'Gönderiliyor...',
       sent: 'Gönderildi',
       successMessage: 'Talebiniz gönderildi! Yakında sizinle iletişime geçeceğiz.',
-      sendError: 'Gönderme hatası. Lütfen daha sonra tekrar deneyin.'
+      sendError: 'Gönderme hatası. Lütfen daha sonra tekrar deneyin.',
+      postRegisterTitle: 'Kayıt başarılı!',
+      postRegisterSubtitle: 'İşlem sinyalleri almak için Pocket Option platformunda hesap kaydınızı tamamlayın'
     },
     footer: {
       description: 'Finansal yatırımlar dünyasında güvenilir ortağınız. Başarılı ticaret için en iyi araçları ve sinyalleri sağlıyoruz.',

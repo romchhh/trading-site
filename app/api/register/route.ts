@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createUser, getUserByEmail } from '@/lib/auth';
+import { notifyNewRegistration } from '@/lib/telegram';
 
 export async function POST(request: NextRequest) {
   try {
@@ -24,6 +25,14 @@ export async function POST(request: NextRequest) {
 
     // Створення користувача
     const user = await createUser(email, password, pocketOptionsId);
+
+    // Відправляємо сповіщення в Telegram (не блокуємо відповідь якщо не вдалося)
+    try {
+      await notifyNewRegistration(email, user.id);
+    } catch (telegramError) {
+      // Не обробляємо помилки Telegram, щоб не заважати реєстрації
+      console.error('Telegram notification error:', telegramError);
+    }
 
     // Повертаємо дані без пароля
     const { password: _, ...userWithoutPassword } = user;

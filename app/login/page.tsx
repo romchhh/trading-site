@@ -28,6 +28,7 @@ function LoginContent() {
   const [registering, setRegistering] = useState(false);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
   const [registeredUserId, setRegisteredUserId] = useState<number | null>(null);
   const [stars, setStars] = useState<Array<{ left: string; top: string; delay: string; size: number }>>([]);
 
@@ -48,6 +49,15 @@ function LoginContent() {
       setStars(newStars);
     };
     generateStars();
+
+    // Завантажити збережені дані, якщо "Запам'ятати мене" було увімкнено
+    const savedEmail = localStorage.getItem('rememberedEmail');
+    const savedPassword = localStorage.getItem('rememberedPassword');
+    if (savedEmail && savedPassword) {
+      setEmail(savedEmail);
+      setPassword(savedPassword);
+      setRememberMe(true);
+    }
   }, []);
 
   const handleLanguageChange = (lang: Language) => {
@@ -91,6 +101,15 @@ function LoginContent() {
       sessionStorage.setItem('isVerified', data.user.isVerified.toString());
       sessionStorage.setItem('isPocketOptionsIdVerified', data.user.isPocketOptionsIdVerified?.toString() || 'false');
       sessionStorage.setItem('isAdmin', data.user.isAdmin.toString());
+
+      // Якщо "Запам'ятати мене" увімкнено, зберегти в localStorage
+      if (rememberMe) {
+        localStorage.setItem('rememberedEmail', email.trim());
+        localStorage.setItem('rememberedPassword', password);
+      } else {
+        localStorage.removeItem('rememberedEmail');
+        localStorage.removeItem('rememberedPassword');
+      }
       
       // Redirect based on user role
       if (data.user.isAdmin) {
@@ -343,7 +362,20 @@ function LoginContent() {
                             <Eye className="w-5 h-5" />
                           )}
                         </button>
-                      </div>
+                    </div>
+                  </div>
+
+                    <div className="flex items-center">
+                      <input
+                        type="checkbox"
+                        id="rememberMe"
+                        checked={rememberMe}
+                        onChange={(e) => setRememberMe(e.target.checked)}
+                        className="w-4 h-4 rounded border-slate-600 bg-slate-800 text-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-0 focus:ring-offset-slate-900"
+                      />
+                      <label htmlFor="rememberMe" className="ml-2 text-sm text-slate-400 cursor-pointer">
+                        Запам'ятати мене
+                      </label>
                     </div>
 
                     {error && (
@@ -495,16 +527,16 @@ function LoginContent() {
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-8">
                 <h2 className="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-white to-green-200 bg-clip-text text-transparent">
-                  Реєстрація успішна!
+                  {t.registerModal.postRegisterTitle}
                 </h2>
-                <p className="text-slate-400 text-lg">Завершіть налаштування акаунту</p>
+                <p className="text-slate-400 text-lg">{t.registerModal.postRegisterSubtitle}</p>
               </div>
 
               <div className="space-y-6">
                 <div className="bg-gradient-to-br from-blue-950/40 to-slate-900/60 border-2 border-blue-900/40 rounded-2xl p-6 sm:p-8 space-y-4">
                   <div>
-                    <label className="block text-sm font-semibold text-slate-300 mb-3">
-                      {t.registerModal.registerLink}
+                    <label className="block text-lg font-semibold text-slate-300 mb-3">
+                      {t.registerModal.registerLinkLabel}
                     </label>
                     <a
                       href={REGISTER_URL}
@@ -522,7 +554,7 @@ function LoginContent() {
 
                   <div>
                     <label className="block text-sm font-semibold text-slate-300 mb-2">
-                      {t.registerModal.promoCode}
+                      {t.registerModal.promoCodeLabel}
                     </label>
                     <div className="flex items-center space-x-3">
                       <div className="flex-1 bg-slate-800/60 border-2 border-blue-900/40 rounded-xl px-6 py-3 text-white font-bold text-lg">
@@ -545,7 +577,7 @@ function LoginContent() {
                     <p className="text-sm text-slate-200 leading-relaxed">
                       <span className="font-bold text-green-400">{t.registerModal.minDeposit}: $50</span>
                       <br />
-                      <span className="font-bold text-green-400">{t.registerModal.bonus}: 60%</span> {t.registerModal.bonusDescription}
+                      <span className="font-bold text-green-400">{t.registerModal.bonus}: +60%</span> {t.registerModal.bonusDescriptionFull}
                     </p>
                   </div>
                 </div>
