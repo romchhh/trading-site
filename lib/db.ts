@@ -63,8 +63,8 @@ export const getDb = () => db;
 export const dbUsers = {
   create: (email: string, password: string, pocketOptionsId: string | null = null) => {
     const stmt = db.prepare(`
-      INSERT INTO User (email, password, pocketOptionsId, isVerified, isPocketOptionsIdVerified, isAdmin)
-      VALUES (?, ?, ?, 0, 0, 0)
+      INSERT INTO User (email, password, pocketOptionsId, isVerified, isPocketOptionsIdVerified, isAdmin, createdAt, updatedAt)
+      VALUES (?, ?, ?, 0, 0, 0, datetime('now'), datetime('now'))
     `);
     const result = stmt.run(email, password, pocketOptionsId);
     return dbUsers.getById(result.lastInsertRowid as number);

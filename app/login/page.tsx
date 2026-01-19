@@ -203,11 +203,6 @@ function LoginContent() {
 
       setSent(true);
       setAccountId('');
-      
-      setTimeout(() => {
-        setSent(false);
-        router.push(`/?lang=${language}`);
-      }, 2000);
     } catch (err: any) {
       setError(err.message || 'Помилка відправки. Спробуйте пізніше.');
     } finally {

@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
 
     // Відправляємо сповіщення в Telegram (не блокуємо відповідь якщо не вдалося)
     try {
-      await notifyNewRegistration(email, user.id);
+      await notifyNewRegistration(email, user.id, user.pocketOptionsId);
     } catch (telegramError) {
       // Не обробляємо помилки Telegram, щоб не заважати реєстрації
       console.error('Telegram notification error:', telegramError);

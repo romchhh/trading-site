@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { dbUsers } from '@/lib/db';
+import { notifyPocketIdVerificationRequest } from '@/lib/telegram';
 
 export async function POST(request: NextRequest) {
   try {
@@ -24,6 +25,14 @@ export async function POST(request: NextRequest) {
         { error: 'Користувача не знайдено' },
         { status: 404 }
       );
+    }
+
+    // Відправляємо сповіщення в Telegram про запит на перевірку (не блокуємо відповідь якщо не вдалося)
+    try {
+      await notifyPocketIdVerificationRequest(user.email, user.id, user.pocketOptionsId || '');
+    } catch (telegramError) {
+      // Не обробляємо помилки Telegram, щоб не заважати оновленню
+      console.error('Telegram notification error:', telegramError);
     }
 
     // Повертаємо дані без пароля
