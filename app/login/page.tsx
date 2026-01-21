@@ -570,9 +570,7 @@ function LoginContent() {
 
                   <div className="bg-gradient-to-br from-green-950/40 to-slate-900/60 border-2 border-green-900/40 rounded-xl p-4">
                     <p className="text-sm text-slate-200 leading-relaxed">
-                      <span className="font-bold text-green-400">{t.registerModal.minDeposit}: $50</span>
-                      <br />
-                      <span className="font-bold text-green-400">{t.registerModal.bonus}: +60%</span> {t.registerModal.bonusDescriptionFull}
+                      {t.registerModal.depositDescription}
                     </p>
                   </div>
                 </div>

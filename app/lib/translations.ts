@@ -95,6 +95,7 @@ type TranslationStructure = {
     sendError: string;
     postRegisterTitle: string;
     postRegisterSubtitle: string;
+    depositDescription: string;
   };
   footer: {
     description: string;
@@ -268,7 +269,8 @@ export const translations: Record<Language, TranslationStructure> = {
       successMessage: 'Ваш запит відправлено! Ми зв\'яжемося з вами найближчим часом.',
       sendError: 'Помилка відправки. Спробуйте пізніше.',
       postRegisterTitle: 'Реєстрація успішна!',
-      postRegisterSubtitle: 'Щоб отримувати торгові сигнали, завершіть реєстрацію акаунту на платформі Pocket Option'
+      postRegisterSubtitle: 'Щоб отримувати торгові сигнали, завершіть реєстрацію акаунту на платформі Pocket Option',
+      depositDescription: 'Поповнюй баланс на будь-яку суму на платформі Pocket Option та отримай доступ до торгових сигналів на валютному ринку.'
     },
     pairs: {
       title: 'Пари та Інструменти для трейдингу',
