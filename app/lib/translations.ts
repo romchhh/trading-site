@@ -633,7 +633,8 @@ export const translations: Record<Language, TranslationStructure> = {
       successMessage: 'Your request has been sent! We will contact you soon.',
       sendError: 'Send error. Please try again later.',
       postRegisterTitle: 'Registration successful!',
-      postRegisterSubtitle: 'To receive trading signals, complete your account registration on Pocket Option platform'
+      postRegisterSubtitle: 'To receive trading signals, complete your account registration on Pocket Option platform',
+      depositDescription: 'Top up your balance with any amount on the Pocket Option platform and get access to trading signals on the currency market.'
     },
     footer: {
       description: 'Your reliable partner in the world of financial investments. We provide the best tools and signals for successful trading.',
@@ -904,7 +905,8 @@ export const translations: Record<Language, TranslationStructure> = {
       successMessage: 'Ваш запрос отправлен! Мы свяжемся с вами в ближайшее время.',
       sendError: 'Ошибка отправки. Попробуйте позже.',
       postRegisterTitle: 'Регистрация успешна!',
-      postRegisterSubtitle: 'Чтобы получать торговые сигналы, завершите регистрацию аккаунта на платформе Pocket Option'
+      postRegisterSubtitle: 'Чтобы получать торговые сигналы, завершите регистрацию аккаунта на платформе Pocket Option',
+      depositDescription: 'Пополняйте баланс на любую сумму на платформе Pocket Option и получите доступ к торговым сигналам на валютном рынке.'
     },
     footer: {
       description: 'Ваш надежный партнер в мире финансовых инвестиций. Мы предоставляем лучшие инструменты и сигналы для успешного трейдинга.',
@@ -1175,7 +1177,8 @@ export const translations: Record<Language, TranslationStructure> = {
       successMessage: 'Vaša požiadavka bola odoslaná! Čoskoro vás budeme kontaktovať.',
       sendError: 'Chyba odoslania. Skúste to neskôr.',
       postRegisterTitle: 'Registrácia úspešná!',
-      postRegisterSubtitle: 'Aby ste dostávali obchodné signály, dokončite registráciu účtu na platforme Pocket Option'
+      postRegisterSubtitle: 'Aby ste dostávali obchodné signály, dokončite registráciu účtu na platforme Pocket Option',
+      depositDescription: 'Dobite si zostatok o akúkoľvek sumu na platforme Pocket Option a získajte prístup k obchodným signálom na menovom trhu.'
     },
     footer: {
       description: 'Váš spoľahlivý partner vo svete finančných investícií. Poskytujeme najlepšie nástroje a signály pre úspešné obchodovanie.',
@@ -1446,7 +1449,8 @@ export const translations: Record<Language, TranslationStructure> = {
       successMessage: 'Twoje żądanie zostało wysłane! Skontaktujemy się z Tobą wkrótce.',
       sendError: 'Błąd wysyłania. Spróbuj ponownie później.',
       postRegisterTitle: 'Rejestracja udana!',
-      postRegisterSubtitle: 'Aby otrzymywać sygnały handlowe, dokończ rejestrację konta na platformie Pocket Option'
+      postRegisterSubtitle: 'Aby otrzymywać sygnały handlowe, dokończ rejestrację konta na platformie Pocket Option',
+      depositDescription: 'Zasil saldo o dowolną kwotę na platformie Pocket Option i uzyskaj dostęp do sygnałów handlowych na rynku walutowym.'
     },
     footer: {
       description: 'Twój niezawodny partner w świecie inwestycji finansowych. Zapewniamy najlepsze narzędzia i sygnały do udanego handlu.',
@@ -1653,7 +1657,8 @@ export const translations: Record<Language, TranslationStructure> = {
       successMessage: 'आपका अनुरोध भेजा गया है! हम जल्द ही आपसे संपर्क करेंगे।',
       sendError: 'भेजने में त्रुटि। कृपया बाद में पुनः प्रयास करें।',
       postRegisterTitle: 'पंजीकरण सफल!',
-      postRegisterSubtitle: 'ट्रेडिंग संकेत प्राप्त करने के लिए, Pocket Option प्लेटफॉर्म पर अपने खाते की पंजीकरण पूरी करें'
+      postRegisterSubtitle: 'ट्रेडिंग संकेत प्राप्त करने के लिए, Pocket Option प्लेटफॉर्म पर अपने खाते की पंजीकरण पूरी करें',
+      depositDescription: 'Pocket Option प्लेटफॉर्म पर किसी भी राशि से बैलेंस भरें और मुद्रा बाजार पर ट्रेडिंग संकेतों तक पहुंच प्राप्त करें।'
     },
     footer: {
       description: 'वित्तीय निवेश की दुनिया में आपका विश्वसनीय साथी। हम सफल व्यापार के लिए सर्वोत्तम उपकरण और संकेत प्रदान करते हैं।',
@@ -1860,7 +1865,8 @@ export const translations: Record<Language, TranslationStructure> = {
       successMessage: 'Talebiniz gönderildi! Yakında sizinle iletişime geçeceğiz.',
       sendError: 'Gönderme hatası. Lütfen daha sonra tekrar deneyin.',
       postRegisterTitle: 'Kayıt başarılı!',
-      postRegisterSubtitle: 'İşlem sinyalleri almak için Pocket Option platformunda hesap kaydınızı tamamlayın'
+      postRegisterSubtitle: 'İşlem sinyalleri almak için Pocket Option platformunda hesap kaydınızı tamamlayın',
+      depositDescription: 'Pocket Option platformunda bakiyenizi herhangi bir tutarla doldurun ve döviz piyasasındaki işlem sinyallerine erişim kazanın.'
     },
     footer: {
       description: 'Finansal yatırımlar dünyasında güvenilir ortağınız. Başarılı ticaret için en iyi araçları ve sinyalleri sağlıyoruz.',
